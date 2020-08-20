@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "typescript-eslint-plugin",
+        "ignoreJavaScript": true,
+        "configFile": "custom.eslintrc.js"
+      }
+    ],
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
