@@ -1,0 +1,15 @@
+{
+  "development": {
+    "username": "",
+    "password": "",
+    "database": "d3moss972a88qa",
+    "host": "ec2-54-75-244-161.eu-west-1.compute.amazonaws.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  }
+}

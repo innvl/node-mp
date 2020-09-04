@@ -34,4 +34,3 @@ const paramsValidationForGetSuggestedUsersSchema = Joi.object({
 export const userBodyValidation = validator.body(bodyValidationSchema);
 export const paramsValidation = validator.params(paramsValidationSchema);
 export const paramsValidationForGetSuggestedUsers = validator.params(paramsValidationForGetSuggestedUsersSchema);
-

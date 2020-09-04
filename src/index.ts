@@ -1,8 +1,9 @@
 import express = require('express');
 
-import { initRoutes } from './components';
+import { initRoutes } from './api/routers';
+import config from './config';
 
-const PORT = process.env.PORT || 3000;
+const PORT = config.port;
 const app = express();
 
 app.use(express.json());
