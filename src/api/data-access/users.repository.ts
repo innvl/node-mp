@@ -7,7 +7,12 @@ class UsersRepository {
     }
 
     async getById(id: string): Promise<IUser | null> {
-        return await Users.findByPk(id);
+        const user = await Users.findByPk(id);
+        if (!user?.id || user?.isDeleted) {
+            throw new Error('User not exsist');
+        } else {
+            return user;
+        }
     }
 
     async update(user: Users): Promise<IUser> {
