@@ -7,5 +7,6 @@ export const usersRouter = Router();
 usersRouter.post('/', userBodyValidation, usersController.create);
 usersRouter.put('/:userId', userBodyValidation, usersController.update);
 usersRouter.get('/:userId', paramsValidation, usersController.getById);
+usersRouter.get('/', usersController.getAllUsers);
 usersRouter.delete('/:userId', paramsValidation, usersController.remove);
 usersRouter.get('/:loginSubStr/:limit', paramsValidationForGetSuggestedUsers, usersController.getAutoSuggestUsers);

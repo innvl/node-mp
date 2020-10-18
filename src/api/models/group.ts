@@ -12,7 +12,7 @@ export interface IGroup {
 
 type GroupsCreationAttributes = Optional<IGroup, 'id'>
 
-export class Group extends Model<IGroup, GroupsCreationAttributes> implements IGroup {
+export class Groups extends Model<IGroup, GroupsCreationAttributes> implements IGroup {
     public id!: string;
     public name!: string;
     public permissions!: Permissions[];
@@ -20,7 +20,7 @@ export class Group extends Model<IGroup, GroupsCreationAttributes> implements IG
     public readonly updatedAt!: Date;
 }
 
-Group.init(
+Groups.init(
     {
         id: {
             type: DataTypes.UUID,
@@ -38,7 +38,7 @@ Group.init(
         }
     },
     {
-        modelName: 'Users',
+        modelName: 'Groups',
         sequelize
     }
 );

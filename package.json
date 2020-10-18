@@ -10,8 +10,11 @@
     "lint": "eslint . --ext .ts",
     "sequelize": "./node_modules/.bin/sequelize",
     "sequelize:migrate": "sequelize db:migrate --env development",
+    "sequelize:migrate:undo": "sequelize db:migrate:undo --env development",
     "sequelize:seed": "sequelize db:seed:all",
-    "populate-db": "npm run sequelize:migrate && npm run sequelize:seed"
+    "sequelize:seed:undo": "sequelize db:seed:undo:all",
+    "populate-db": "npm run sequelize:migrate && npm run sequelize:seed",
+    "clear-db": "npm run sequelize:migrate:undo && npm run sequelize:seed:undo"
   },
   "author": "",
   "license": "ISC",

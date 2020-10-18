@@ -1,28 +1,27 @@
-import { DataTypes, UUIDV4 } from 'sequelize';
 
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         await queryInterface.createTable('Users', {
             id: {
-                type: DataTypes.UUID,
-                defaultValue: UUIDV4,
+                type: Sequelize.UUID,
+                defaultValue: Sequelize.UUID,
                 primaryKey: true,
                 allowNull: false
             },
             login: {
-                type: DataTypes.STRING,
+                type: Sequelize.STRING,
                 allowNull: false
             },
             password: {
-                type: DataTypes.STRING,
+                type: Sequelize.STRING,
                 allowNull: false
             },
             age: {
-                type: DataTypes.INTEGER,
+                type: Sequelize.INTEGER,
                 allowNull: false
             },
             isDeleted: {
-                type: DataTypes.BOOLEAN,
+                type: Sequelize.BOOLEAN,
                 allowNull: false
             },
             createdAt: {
