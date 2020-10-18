@@ -1,27 +1,18 @@
-
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('Users', {
+        await queryInterface.createTable('Groups', {
             id: {
-                type: Sequelize.UUID,
-                defaultValue: Sequelize.UUID,
+                allowNull: false,
                 primaryKey: true,
-                allowNull: false
+                type: Sequelize.UUID,
+                defaultValue: Sequelize.UUID
             },
-            login: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull: false
             },
-            password: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-            age: {
-                type: Sequelize.INTEGER,
-                allowNull: false
-            },
-            isDeleted: {
-                type: Sequelize.BOOLEAN,
+            permissions: {
+                type: Sequelize.ARRAY(Sequelize.STRING),
                 allowNull: false
             },
             createdAt: {
@@ -35,6 +26,6 @@ module.exports = {
         });
     },
     down: async (queryInterface) => {
-        await queryInterface.dropTable('Users');
+        await queryInterface.dropTable('Groups');
     }
 };

@@ -15,8 +15,8 @@ class UsersRepository {
         }
     }
 
-    async update(user: Users): Promise<IUser> {
-        return await user.update(
+    async update(user: IUser): Promise<[number, Users[]]> {
+        return await Users.update(
             { ...user },
             { where: { id: user.id } }
         );

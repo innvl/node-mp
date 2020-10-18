@@ -1,6 +1,15 @@
 import { Request, Response } from 'express';
 import { usersRepository } from '../data-access/users.repository';
 
+export const getAllUsers = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const users = await usersRepository.getUsers();
+        res.status(200).send(users);
+    } catch (e) {
+        res.status(400).send(e?.message);
+    }
+};
+
 export const getById = async (req: Request, res: Response): Promise<void> => {
     try {
         const id = req.params?.userId;
