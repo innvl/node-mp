@@ -1,10 +1,13 @@
 import { IGroup, Groups } from '../models/group';
+import { logRequest } from '../utils/decorators';
 
-class GroupsRepository {
+export class GroupsRepository {
+    @logRequest()
     async getAll(): Promise<IGroup[]> {
         return await Groups.findAll();
     }
 
+    @logRequest()
     async getById(id: string): Promise<IGroup | null> {
         const group = await Groups.findByPk(id);
         if (!group?.id) {
@@ -14,6 +17,7 @@ class GroupsRepository {
         }
     }
 
+    @logRequest()
     async update(group: IGroup): Promise<[number, Groups[]]> {
         return await Groups.update(
             { ...group },
@@ -21,10 +25,12 @@ class GroupsRepository {
         );
     }
 
+    @logRequest()
     async create(group: Groups): Promise<IGroup> {
         return await Groups.create({ ...group });
     }
 
+    @logRequest()
     async remove(id: string): Promise<number> {
         return await Groups.destroy({
             where: {
