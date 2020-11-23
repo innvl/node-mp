@@ -6,7 +6,7 @@ const validator = createValidator();
 const bodyValidationSchema = Joi.object(
     {
         login: Joi.string()
-            .alphanum()
+            .email()
             .required(),
         password: Joi.string()
             .regex(/\d/, 'contains at least 1 number')

@@ -1,5 +1,6 @@
 import express = require('express');
 import { NextFunction, Request, Response } from 'express';
+import * as cors from 'cors';
 
 import { initRoutes } from './api/routers';
 import { logger, requestLogger } from './api/utils/lib';
@@ -9,6 +10,7 @@ const PORT = config.port;
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     logger.error(`Internal Server Error: ${error.message} :: ${req.originalUrl} :: ${req.method}`);

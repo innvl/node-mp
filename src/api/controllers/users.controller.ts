@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import * as bcrypt from 'bcryptjs';
 import { usersRepository } from '../data-access/users.repository';
 
 export const getAllUsers = async (req: Request, res: Response): Promise<void> => {
@@ -22,8 +23,11 @@ export const getById = async (req: Request, res: Response): Promise<void> => {
 
 export const create = async (req: Request, res: Response): Promise<void> => {
     try {
+        const salt = await bcrypt.genSalt(10);
+        const password = await bcrypt.hash(req.body.password, salt);
         const user = await usersRepository.create({
             ...req.body,
+            password,
             isDeleted: false
         });
         res.status(201).send(user.id);
