@@ -19,6 +19,22 @@ class UsersRepository {
     }
 
     @logRequest()
+    async getByUserLogin(login: string): Promise<IUser | null> {
+        const user = await Users.findOne({
+            where: {
+                login: {
+                    [Op.eq]: login
+                }
+            }
+        });
+        if (!user?.id || user?.isDeleted) {
+            throw new Error('User not exsist');
+        } else {
+            return user;
+        }
+    }
+
+    @logRequest()
     async update(user: IUser): Promise<[number, Users[]]> {
         return await Users.update(
             { ...user },
