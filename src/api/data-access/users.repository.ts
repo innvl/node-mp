@@ -43,7 +43,7 @@ class UsersRepository {
     }
 
     @logRequest()
-    async create(user: Users): Promise<IUser> {
+    async create(user: IUser): Promise<IUser> {
         return await Users.create({ ...user });
     }
 
